@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionProgress: UIProgressView!
     @IBOutlet weak var buttonTrue: UIButton!
     @IBOutlet weak var buttonFalse: UIButton!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     var questionSet: QuestionSet!
     
@@ -44,6 +45,7 @@ class ViewController: UIViewController {
         if let question = questionSet.getCurrentQuestion() {
             questionLabel.text = question.text
             questionProgress.setProgress(questionSet.getCurrentProgress(), animated: true)
+            scoreLabel.text = "\(questionSet.score)"
         } else {
             questionLabel.text = "Your Score is \(questionSet.score) / \(questionSet.getCurrenQuestionCount())"
             buttonFalse.setTitle("Restart", for: UIControl.State.normal)
